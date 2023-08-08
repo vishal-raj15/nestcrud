@@ -10,10 +10,10 @@ require('dotenv').config();
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'mysqldb',
-      port: 3307,
+      host: process.env.DB_HOST || '127.0.0.1',
+      port: 3306,
       username: process.env.USER_NAME,
-      password: process.env.USER_PASSWORD,
+      password: process.env.ROOT_PASSWORD,
       database: process.env.DB_NAME,
       entities: [UserEntity],
       synchronize: true,
@@ -24,3 +24,5 @@ require('dotenv').config();
   providers: [AppService],
 })
 export class AppModule {}
+
+// passworD123@A#
